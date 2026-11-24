@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#3a1219">
+  <title>Dr. Anam Iqbal &amp; Engr. Abdul Rehman — Barat Invitation</title>
+  <meta name="description" content="Barat celebration of Dr. Anam Iqbal with Engr. Abdul Rehman, Thursday 21 January 2027, Shan - e -Multan Event Complex.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Great+Vibes&family=Jost:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%233a1219' width='32' height='32' rx='6'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='12' fill='%23f3e6c4' font-family='Georgia'%3EA%26R%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --green: #1a4332;
+      --green-soft: #2c4a3e;
+      --rose: #b5524a;
+      --rose-deep: #9a403c;
+      --cream: #fbf8f3;
+      --paper: #f7f1e8;
+      --line: #eadfd4;
+      --gold: #e7d3a4;
+      --gold-deep: #b8924a;
+      --ink: #24362e;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Cormorant Garamond", Palatino, Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    ::selection {
+      background: #ead3ce;
+      color: var(--green);
+    }
+
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .scene {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      overflow: auto;
+      display: grid;
+      place-items: safe center;
+      padding: 32px 18px 48px;
+      background:
+        radial-gradient(ellipse at 50% 18%, rgba(255, 250, 242, 0.95), transparent 46%),
+        radial-gradient(ellipse at 50% 100%, rgba(214, 196, 176, 0.35), transparent 42%),
+        var(--paper);
+    }
+
+    .flare {
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      width: 78vmax;
+      height: 78vmax;
+      transform: translate(-50%, -50%) scale(0.82);
+      background: radial-gradient(circle, rgba(255, 236, 208, 0.9), rgba(255, 236, 208, 0) 68%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.5s ease 0.25s, transform 1.7s ease 0.25s;
+    }
+
+    .is-open .flare {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .petals { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+
+    .petal {
+      position: absolute;
+      top: -12vh;
+      left: var(--x);
+      width: calc(7px * var(--s));
+      height: calc(13px * var(--s));
+      border-radius: 70% 10% 70% 10%;
+      background: var(--c);
+      opacity: 0;
+      animation: fall var(--t) linear var(--d) paused;
+    }
+
+    .is-open .petal { animation-play-state: running; }
+
+    @keyframes fall {
+      0% { transform: translate3d(0, -10vh, 0) rotate(0deg); opacity: 0; }
+      12% { opacity: 0.85; }
+      100% { transform: translate3d(var(--drift), 115vh, 0) rotate(240deg); opacity: 0; }
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      width: min(720px, 100%);
+      background: var(--cream);
+      border: 1px solid #c9d8c6;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.8) inset,
+        0 26px 70px rgba(72, 42, 28, 0.12);
+      opacity: 0;
+      transform: translateY(28px) scale(0.965);
+      transition: opacity 1.05s ease 0.72s, transform 1.15s cubic-bezier(0.16, 0.84, 0.32, 1) 0.72s;
+    }
+
+    .is-open .card {
+      opacity: 1;
+      transform: none;
+    }
+
+    .sprig {
+      position: absolute;
+      width: 78px;
+      height: 112px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sprig.tl { top: 8px; left: 2px; }
+    .sprig.tr { top: 8px; right: 2px; transform: scaleX(-1); }
+    .sprig.bl { bottom: 8px; left: 2px; width: 70px; height: 96px; transform: scaleY(-1); }
+    .sprig.br { bottom: 8px; right: 2px; width: 70px; height: 96px; transform: scale(-1); }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+      padding: 46px 68px 30px;
+      text-align: center;
+    }
+
+    .label {
+      margin: 0;
+      font-family: "Jost", "Gill Sans", "Trebuchet MS", sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+
+    .blessing { margin-bottom: 14px; }
+
+    .invite {
+      margin: 0;
+      font-size: 1.55rem;
+      font-style: italic;
+      font-weight: 500;
+      color: #3e4d45;
+      letter-spacing: 0.01em;
+    }
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 18px auto 20px;
+      width: min(220px, 70%);
+      color: #e2b2aa;
+    }
+
+    .ornament span {
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, transparent, #e4c3bc 20%, #e4c3bc 80%, transparent);
+    }
+
+    .ornament svg { width: 7px; height: 7px; display: block; }
+
+    .name {
+      margin: 0;
+      font-family: "Playfair Display", Palatino, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2.5rem, 6vw, 3.55rem);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      color: var(--green);
+      text-wrap: balance;
+    }
+
+    .with {
+      margin: 2px 0 0;
+      font-family: "Great Vibes", Palatino, cursive;
+      font-size: clamp(2.15rem, 4vw, 2.7rem);
+      line-height: 1;
+      color: var(--rose);
+      font-weight: 400;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      margin: 22px 0;
+      background: var(--line);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 8px 22px;
+      align-items: center;
+    }
+
+    .vbar {
+      width: 1px;
+      height: 52px;
+      justify-self: center;
+      background: #e7ddd2;
+    }
+
+    .when {
+      margin: 8px 0 0;
+      font-family: "Playfair Display", Palatino, Georgia, serif;
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      font-weight: 500;
+      color: var(--green);
+    }
+
+    .venue-block { margin-top: 2px; }
+
+    .venue {
+      margin: 8px 0 0;
+      font-family: "Playfair Display", Palatino, Georgia, serif;
+      font-size: clamp(1.45rem, 3vw, 1.85rem);
+      font-weight: 500;
+      color: var(--green);
+      text-wrap: balance;
+    }
+
+    .address {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 7px;
+      width: fit-content;
+      max-width: 100%;
+      margin: 8px auto 0;
+      color: #5d6b63;
+      font-size: 1.08rem;
+      line-height: 1.35;
+      text-align: left;
+      text-decoration: none;
+    }
+
+    .address svg { margin-top: 0.22em; flex: none; }
+    .address span { hyphens: none; }
+
+    .address svg { flex: 0 0 auto; }
+
+    .address:hover { color: var(--green); }
+
+    .family {
+      display: grid;
+      grid-template-columns: 1.15fr 1px 0.95fr;
+      gap: 8px 28px;
+      align-items: center;
+      text-align: left;
+    }
+
+    .family .vbar { height: 78px; }
+
+    .father-name {
+      margin: 6px 0 0;
+      font-family: "Playfair Display", Palatino, Georgia, serif;
+      font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+      font-weight: 500;
+      color: var(--green);
+      line-height: 1.2;
+    }
+
+    .brothers {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--green-soft);
+      font-size: 1.2rem;
+      line-height: 1.45;
+    }
+
+    .contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      color: #66756d;
+      font-size: 1.05rem;
+    }
+
+    .contact a {
+      color: var(--green);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+    }
+
+    .contact a:hover { color: var(--rose-deep); }
+
+    .rod {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 16px;
+      z-index: 24;
+      pointer-events: none;
+      background: linear-gradient(#f4e6c8, #c6a15a 42%, #7d6232 78%, #efe0bc);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+      transition: opacity 0.6s ease 0.9s;
+    }
+
+    .rod span {
+      position: absolute;
+      top: 10px;
+      width: 12px;
+      height: 18px;
+      border: 2px solid #8d6a34;
+      border-radius: 0 0 8px 8px;
+      background: linear-gradient(#f0e2c0, #b8924a);
+    }
+
+    .is-open .rod { opacity: 0; }
+
+    .curtain {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: calc(50% + 28px);
+      z-index: 20;
+      overflow: hidden;
+      background-color: #3a1219;
+      background-image: repeating-linear-gradient(
+        90deg,
+        #2c0c12 0px,
+        #4c1822 10px,
+        #7a3140 20px,
+        #5a202a 30px,
+        #3a1219 42px,
+        #682834 52px,
+        #250a10 64px
+      );
+      transition: transform 2.15s cubic-bezier(0.77, 0, 0.18, 1);
+      will-change: transform;
+    }
+
+    .curtain.left {
+      left: 0;
+      box-shadow: inset -28px 0 36px rgba(0, 0, 0, 0.45);
+    }
+
+    .curtain.right {
+      right: 0;
+      box-shadow: inset 28px 0 36px rgba(0, 0, 0, 0.45);
+    }
+
+    .is-open .curtain.left { transform: translate3d(-105%, 0, 0); }
+    .is-open .curtain.right { transform: translate3d(105%, 0, 0); }
+
+    .fabric {
+      position: absolute;
+      inset: -6% -12%;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.22), transparent 18%, rgba(255, 228, 196, 0.07) 48%, transparent 78%, rgba(0, 0, 0, 0.2));
+      animation: sway 7s ease-in-out infinite;
+    }
+
+    .curtain.right .fabric { animation-direction: reverse; }
+
+    .curtain::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 42px;
+      background:
+        repeating-linear-gradient(90deg, #e8cd90 0 2px, transparent 2px 11px) bottom / 100% 9px no-repeat,
+        linear-gradient(#4a151d, #24090d);
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(-10px); }
+    }
+
+    .is-open .fabric { animation: none; }
+
+    .unveil {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: grid;
+      place-items: center;
+      padding: 28px 16px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      color: inherit;
+      transition: opacity 0.7s ease;
+    }
+
+    .unveil:focus { outline: none; }
+
+    .unveil:focus-visible .medallion {
+      outline: 2px solid var(--gold);
+      outline-offset: 8px;
+    }
+
+    .is-open .unveil {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .poster {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(12px, 2.4vh, 20px);
+      max-width: 640px;
+      padding: 36px 28px;
+      background: radial-gradient(ellipse at center, rgba(28, 8, 12, 0.42), transparent 72%);
+      transition: transform 0.8s ease, opacity 0.7s ease;
+    }
+
+    .is-open .poster {
+      transform: scale(1.06);
+      opacity: 0;
+    }
+
+    .poster .label {
+      color: #f0cfc4;
+    }
+
+    .poster-names {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      font-family: "Playfair Display", Palatino, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(1.9rem, 8.6vw, 5rem);
+      line-height: 0.92;
+      color: #fbf6ec;
+      text-shadow: 0 12px 36px rgba(0, 0, 0, 0.38);
+    }
+
+    .poster-names > span:not(.amp) { white-space: nowrap; }
+
+    .poster-names .amp {
+      font-family: "Great Vibes", cursive;
+      font-size: 0.58em;
+      line-height: 0.8;
+      color: #f3c7b6;
+      text-shadow: none;
+      margin: 4px 0;
+    }
+
+    .poster-meta {
+      margin: 0;
+      font-family: "Jost", "Gill Sans", sans-serif;
+      font-size: 0.74rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .medallion {
+      width: 96px;
+      height: 96px;
+      margin-top: 4px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #f8efd8;
+      font-family: "Jost", sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      background:
+        radial-gradient(circle at 38% 32%, rgba(255, 244, 214, 0.45), transparent 36%),
+        radial-gradient(circle at 50% 55%, #7a3140, #3a1219 74%);
+      box-shadow:
+        0 0 0 1px #e7d3a4,
+        0 0 0 7px rgba(48, 12, 18, 0.35),
+        0 0 0 8px rgba(231, 211, 164, 0.75),
+        0 18px 40px rgba(0, 0, 0, 0.35);
+      animation: pulse 2.8s ease-in-out infinite;
+      transition: transform 0.35s ease;
+    }
+
+    .unveil:hover .medallion { transform: scale(1.06); }
+    .unveil:active .medallion { transform: scale(0.98); }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 1px #e7d3a4, 0 0 0 7px rgba(48, 12, 18, 0.35), 0 0 0 8px rgba(231, 211, 164, 0.75), 0 18px 40px rgba(0, 0, 0, 0.35); }
+      50% { box-shadow: 0 0 0 1px #e7d3a4, 0 0 0 12px rgba(48, 12, 18, 0.12), 0 0 0 13px rgba(231, 211, 164, 0.35), 0 18px 40px rgba(0, 0, 0, 0.35); }
+    }
+
+    .hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      font-family: "Jost", sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #f6e7c8;
+    }
+
+    .hint svg { width: 16px; height: 16px; }
+    .hint svg:first-child { animation: nudge-left 1.6s ease-in-out infinite; }
+    .hint svg:last-child { animation: nudge-right 1.6s ease-in-out infinite; }
+
+    @keyframes nudge-left {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(-5px); }
+    }
+
+    @keyframes nudge-right {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(5px); }
+    }
+
+    .replay {
+      position: relative;
+      z-index: 2;
+      margin-top: 18px;
+      opacity: 0;
+      pointer-events: none;
+      border: 1px solid rgba(26, 67, 50, 0.2);
+      background: rgba(251, 248, 243, 0.72);
+      color: var(--green);
+      font-family: "Cormorant Garamond", Palatino, Georgia, serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      padding: 6px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: opacity 0.4s ease 1.4s, background 0.2s ease;
+    }
+
+    .is-open .replay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .replay:disabled {
+      opacity: 0;
+    }
+
+    .replay:hover { background: white; }
+
+    .replay:focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 720px) {
+      .card-inner { padding: 40px 28px 24px; }
+      .sprig { width: 54px; height: 78px; }
+      .sprig.bl, .sprig.br { width: 48px; height: 68px; }
+      .family, .split { gap: 8px 14px; }
+      .address { font-size: 1rem; }
+      .brothers { font-size: 1.08rem; }
+    }
+
+    @media (max-width: 560px) {
+      .split, .family { grid-template-columns: 1fr; text-align: center; }
+      .split .vbar, .family .vbar { display: none; }
+      .family { justify-items: center; }
+      .card-inner { padding: 48px 20px 24px; }
+      .name { font-size: 2.35rem; }
+      .invite { font-size: 1.28rem; }
+    }
+
+    @media (max-height: 680px) {
+      .poster { gap: 10px; padding: 16px; }
+      .poster-names { font-size: 2.6rem; }
+      .medallion { width: 74px; height: 74px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      .petal { display: none; }
+    }
+
+    @media print {
+      .curtain, .rod, .unveil, .replay, .petals, .flare { display: none !important; }
+      .scene { position: static; background: white; display: block; padding: 0; }
+      .card { opacity: 1 !important; transform: none !important; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <symbol id="sprig" viewBox="0 0 160 240">
+      <path d="M46 8c10 26 2 46 16 68 16 26 4 48 18 74 12 22 2 44 16 74" stroke="#8eae88" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <path d="M58 78c18 8 28 28 18 46" stroke="#8eae88" stroke-width="1" fill="none" stroke-linecap="round"/>
+      <g fill="#b7d0b0" stroke="#7f9d7c" stroke-width="0.6">
+        <ellipse cx="40" cy="36" rx="6" ry="14" transform="rotate(-48 40 36)"/>
+        <ellipse cx="58" cy="30" rx="5.5" ry="12" transform="rotate(26 58 30)"/>
+        <ellipse cx="34" cy="64" rx="6" ry="13" transform="rotate(-58 34 64)"/>
+        <ellipse cx="54" cy="58" rx="5" ry="12" transform="rotate(18 54 58)"/>
+        <ellipse cx="62" cy="102" rx="6" ry="14" transform="rotate(-36 62 102)"/>
+        <ellipse cx="80" cy="96" rx="5" ry="12" transform="rotate(32 80 96)"/>
+        <ellipse cx="48" cy="146" rx="6" ry="13" transform="rotate(-50 48 146)"/>
+        <ellipse cx="70" cy="138" rx="5.5" ry="12" transform="rotate(24 70 138)"/>
+        <ellipse cx="78" cy="186" rx="6" ry="14" transform="rotate(-30 78 186)"/>
+        <ellipse cx="96" cy="176" rx="5" ry="11" transform="rotate(40 96 176)"/>
+        <ellipse cx="92" cy="214" rx="5.5" ry="13" transform="rotate(-18 92 214)"/>
+      </g>
+      <ellipse cx="118" cy="118" rx="4" ry="9" fill="#e7b2a8" transform="rotate(24 118 118)"/>
+      <ellipse cx="24" cy="96" rx="3.5" ry="8" fill="#efc3b8" transform="rotate(-20 24 96)"/>
+    </symbol>
+  </svg>
+
+  <main class="scene">
+    <div class="flare" aria-hidden="true"></div>
+    <div class="petals" aria-hidden="true">
+      <i class="petal" style="--x:6%;--d:.15s;--t:8.5s;--s:1.1;--c:#e7b7b0;--drift:24px"></i>
+      <i class="petal" style="--x:14%;--d:1.1s;--t:9.2s;--s:.8;--c:#f3d3c4;--drift:-18px"></i>
+      <i class="petal" style="--x:24%;--d:.4s;--t:7.6s;--s:1.3;--c:#d7e4d2;--drift:30px"></i>
+      <i class="petal" style="--x:36%;--d:1.8s;--t:10s;--s:.9;--c:#f0c9c4;--drift:-26px"></i>
+      <i class="petal" style="--x:48%;--d:.7s;--t:8.8s;--s:1;--c:#f7e1dc;--drift:16px"></i>
+      <i class="petal" style="--x:58%;--d:2.1s;--t:9.4s;--s:1.2;--c:#c9dcc6;--drift:-20px"></i>
+      <i class="petal" style="--x:70%;--d:.3s;--t:8s;--s:.85;--c:#e8b4ae;--drift:28px"></i>
+      <i class="petal" style="--x:80%;--d:1.4s;--t:9.8s;--s:1.15;--c:#f6d8cc;--drift:-14px"></i>
+      <i class="petal" style="--x:90%;--d:.9s;--t:8.2s;--s:.95;--c:#ddc9be;--drift:22px"></i>
+      <i class="petal" style="--x:18%;--d:2.6s;--t:11s;--s:.7;--c:#e7b7b0;--drift:12px"></i>
+      <i class="petal" style="--x:64%;--d:3s;--t:10.4s;--s:1.05;--c:#f3d3c4;--drift:-24px"></i>
+      <i class="petal" style="--x:42%;--d:2.3s;--t:8.6s;--s:.75;--c:#d7e4d2;--drift:18px"></i>
+    </div>
+
+    <article class="card" aria-label="Wedding invitation">
+      <svg class="sprig tl" aria-hidden="true"><use href="#sprig"/></svg>
+      <svg class="sprig tr" aria-hidden="true"><use href="#sprig"/></svg>
+      <svg class="sprig bl" aria-hidden="true"><use href="#sprig"/></svg>
+      <svg class="sprig br" aria-hidden="true"><use href="#sprig"/></svg>
+
+      <div class="card-inner">
+        <p class="label blessing">With the blessings of their families</p>
+        <p class="invite">Request the pleasure of your company</p>
+
+        <div class="ornament" aria-hidden="true">
+          <span></span>
+          <svg viewBox="0 0 10 10"><path d="M5 0 L10 5 L5 10 L0 5 Z" fill="#e2a79e"/></svg>
+          <span></span>
+        </div>
+
+        <h1 class="name">Dr. Anam Iqbal</h1>
+        <p class="with">with</p>
+        <p class="name">Engr. Abdul Rehman</p>
+
+        <hr>
+
+        <div class="split">
+          <div>
+            <p class="label">Barat Celebration</p>
+            <p class="when">Thursday, 21 January 2027</p>
+          </div>
+          <span class="vbar" aria-hidden="true"></span>
+          <div>
+            <p class="label">Arrival</p>
+            <p class="when">1:00pm</p>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="venue-block">
+          <p class="label">Celebration at</p>
+          <p class="venue">Shan - e -Multan Event Complex</p>
+          <a class="address" href="https://www.google.com/maps/search/?api=1&amp;query=Shan%20-%20e%20-Multan%20Event%20Complex%20Nawabpur%20Road%20Multan" target="_blank" rel="noopener noreferrer">
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7">
+              <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/>
+              <circle cx="12" cy="10" r="2.2"/>
+            </svg>
+            <span>Nawabpur Road, near Faiz&#8209;e&#8209;Aam Nursery, Multan</span>
+          </a>
+        </div>
+
+        <hr>
+
+        <div class="family">
+          <div>
+            <p class="label">With love from her father</p>
+            <p class="father-name">Professor Muhammad Iqbal</p>
+          </div>
+          <span class="vbar" aria-hidden="true"></span>
+          <ul class="brothers">
+            <li>Dr. Younas Malik</li>
+            <li>Engr. Yousaf Malik</li>
+            <li>Engr. Bilal Malik</li>
+          </ul>
+        </div>
+
+        <hr>
+
+        <p class="contact">
+          <span>For details</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#1a4332" stroke-width="1.7">
+            <path d="M6.5 3.5h3L11 7.2 9.2 8.4a12.5 12.5 0 0 0 6.4 6.4l1.2-1.8 3.7 1.5v3A1.5 1.5 0 0 1 19 19 16.5 16.5 0 0 1 5 5a1.5 1.5 0 0 1 1.5-1.5z"/>
+          </svg>
+          <a href="tel:+923006326697">0300 6326697</a>
+        </p>
+      </div>
+    </article>
+    <button class="replay" type="button" disabled>Draw the curtains</button>
+  </main>
+
+  <div class="rod" aria-hidden="true">
+    <span style="left:8%"></span>
+    <span style="left:22%"></span>
+    <span style="left:36%"></span>
+    <span style="right:36%"></span>
+    <span style="right:22%"></span>
+    <span style="right:8%"></span>
+  </div>
+
+  <div class="curtain left" aria-hidden="true"><div class="fabric"></div></div>
+  <div class="curtain right" aria-hidden="true"><div class="fabric"></div></div>
+
+  <button class="unveil" type="button" aria-expanded="false" aria-label="Open the invitation for Dr. Anam Iqbal and Engr. Abdul Rehman">
+    <div class="poster">
+      <p class="label">Barat Celebration</p>
+      <p class="poster-names">
+        <span>Anam</span>
+        <span class="amp">&amp;</span>
+        <span>Engr. Abdul Rehman</span>
+      </p>
+      <p class="poster-meta">21 January 2027 · Multan</p>
+      <div class="medallion">Open</div>
+      <p class="hint">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M10 3 L5 8 L10 13"/></svg>
+        Part the curtains
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M6 3 L11 8 L6 13"/></svg>
+      </p>
+    </div>
+  </button>
+
+  <noscript>
+    <style>
+      .curtain, .rod, .unveil, .replay, .petals { display: none !important; }
+      .card, .flare { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+
+  <script>
+    const root = document.body;
+    const unveil = document.querySelector(".unveil");
+    const replay = document.querySelector(".replay");
+    function openInvite() {
+      root.classList.add("is-open");
+      unveil.setAttribute("aria-expanded", "true");
+      replay.disabled = false;
+    }
+
+    function closeInvite() {
+      root.classList.remove("is-open");
+      unveil.setAttribute("aria-expanded", "false");
+      replay.disabled = true;
+      document.querySelector(".scene").scrollTop = 0;
+    }
+
+    unveil.addEventListener("click", openInvite);
+    replay.addEventListener("click", closeInvite);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && root.classList.contains("is-open")) closeInvite();
+    });
+  </script>
+</body>
+</html>
